@@ -1,0 +1,72 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    function isSignedIn() {
+      return request.auth != null;
+    }
+
+    function isAdmin() {
+      return request.auth != null && (
+        request.auth.token.email == 'godhhduby@gmail.com' ||
+        request.auth.token.role == 'admin' ||
+        request.auth.uid == 'logitech01' ||
+        exists(/databases/$(database)/documents/admins/$(request.auth.uid))
+      );
+    }
+
+    // Plans
+    match /plans/{planId} {
+      allow read: if true;
+      allow write: if true;
+    }
+
+    // Settings
+    match /settings/{settingId} {
+      allow read: if true;
+      allow write: if true;
+    }
+
+    // Users
+    match /users/{userId} {
+      allow read: if true;
+      allow write: if true;
+    }
+
+    // Payments / Recharge Requests
+    match /payments/{paymentId} {
+      allow read: if true;
+      allow write: if true;
+    }
+
+    // Withdrawals
+    match /withdrawals/{withdrawalId} {
+      allow read: if true;
+      allow write: if true;
+    }
+
+    // Ledger
+    match /ledger/{ledgerId} {
+      allow read: if true;
+      allow write: if true;
+    }
+
+    // Audit logs
+    match /audit_logs/{logId} {
+      allow read: if true;
+      allow write: if true;
+    }
+
+    // Support chats between users and admin
+    match /support_chats/{msgId} {
+      allow read: if true;
+      allow write: if true;
+    }
+
+    // System counters
+    match /system_counters/{counterId} {
+      allow read: if true;
+      allow write: if true;
+    }
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "name": "LOGITECH Referral & Rewards",
+  "description": "Enterprise fintech referral and rewards platform with dual English & Hindi language, UPI payments, daily earnings, team network, and admin control.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

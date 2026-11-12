@@ -1,0 +1,138 @@
+{
+  "entities": {
+    "User": {
+      "collection": "users",
+      "fields": {
+        "id": { "type": "string", "required": true },
+        "name": { "type": "string", "required": true },
+        "mobile": { "type": "string", "required": true },
+        "password": { "type": "string", "required": false },
+        "role": { "type": "string", "required": true },
+        "referralCode": { "type": "string", "required": true },
+        "referredBy": { "type": "string", "required": false },
+        "planId": { "type": "string", "required": true },
+        "planActivatedAt": { "type": "string", "required": false },
+        "walletBalance": { "type": "number", "required": true },
+        "pendingBalance": { "type": "number", "required": true },
+        "totalEarnings": { "type": "number", "required": true },
+        "totalWithdrawn": { "type": "number", "required": true },
+        "referralEarnings": { "type": "number", "required": true },
+        "status": { "type": "string", "required": true },
+        "createdAt": { "type": "string", "required": true },
+        "lastDailyCreditDate": { "type": "string", "required": false }
+      }
+    },
+    "Plan": {
+      "collection": "plans",
+      "fields": {
+        "id": { "type": "string", "required": true },
+        "name": { "type": "string", "required": true },
+        "nameHi": { "type": "string", "required": true },
+        "price": { "type": "number", "required": true },
+        "dailyEarning": { "type": "number", "required": true },
+        "durationDays": { "type": "number", "required": true },
+        "totalReturn": { "type": "number", "required": true },
+        "badge": { "type": "string", "required": false },
+        "color": { "type": "string", "required": true },
+        "isPopular": { "type": "boolean", "required": false }
+      }
+    },
+    "PaymentTransaction": {
+      "collection": "payments",
+      "fields": {
+        "id": { "type": "string", "required": true },
+        "userId": { "type": "string", "required": true },
+        "userName": { "type": "string", "required": true },
+        "userMobile": { "type": "string", "required": true },
+        "planId": { "type": "string", "required": true },
+        "planName": { "type": "string", "required": true },
+        "amount": { "type": "number", "required": true },
+        "utr": { "type": "string", "required": true },
+        "paymentMethod": { "type": "string", "required": true },
+        "screenshotUrl": { "type": "string", "required": false },
+        "status": { "type": "string", "required": true },
+        "rejectionReason": { "type": "string", "required": false },
+        "submittedAt": { "type": "string", "required": true },
+        "verifiedAt": { "type": "string", "required": false },
+        "verifiedBy": { "type": "string", "required": false }
+      }
+    },
+    "WithdrawalRequest": {
+      "collection": "withdrawals",
+      "fields": {
+        "id": { "type": "string", "required": true },
+        "userId": { "type": "string", "required": true },
+        "userName": { "type": "string", "required": true },
+        "userMobile": { "type": "string", "required": true },
+        "amount": { "type": "number", "required": true },
+        "tdsPercent": { "type": "number", "required": true },
+        "tdsAmount": { "type": "number", "required": true },
+        "netAmount": { "type": "number", "required": true },
+        "upiId": { "type": "string", "required": true },
+        "upiMobile": { "type": "string", "required": true },
+        "status": { "type": "string", "required": true },
+        "payoutReference": { "type": "string", "required": false },
+        "rejectionReason": { "type": "string", "required": false },
+        "requestedAt": { "type": "string", "required": true },
+        "processedAt": { "type": "string", "required": false }
+      }
+    },
+    "LedgerEntry": {
+      "collection": "ledger",
+      "fields": {
+        "id": { "type": "string", "required": true },
+        "userId": { "type": "string", "required": true },
+        "type": { "type": "string", "required": true },
+        "amount": { "type": "number", "required": true },
+        "description": { "type": "string", "required": true },
+        "descriptionHi": { "type": "string", "required": true },
+        "referenceId": { "type": "string", "required": false },
+        "createdAt": { "type": "string", "required": true },
+        "balanceAfter": { "type": "number", "required": true }
+      }
+    },
+    "CompanySettings": {
+      "collection": "settings",
+      "fields": {
+        "companyName": { "type": "string", "required": true },
+        "upiId": { "type": "string", "required": true },
+        "phonePeNumber": { "type": "string", "required": true },
+        "payeeName": { "type": "string", "required": true },
+        "qrImageUrl": { "type": "string", "required": true },
+        "minWithdrawal": { "type": "number", "required": true },
+        "maxWithdrawal": { "type": "number", "required": true },
+        "tdsPercent": { "type": "number", "required": true },
+        "referralBonusPercent": { "type": "number", "required": true },
+        "dailyTopupHour": { "type": "number", "required": true },
+        "announcementEn": { "type": "string", "required": true },
+        "announcementHi": { "type": "string", "required": true }
+      }
+    },
+    "AuditLog": {
+      "collection": "audit_logs",
+      "fields": {
+        "id": { "type": "string", "required": true },
+        "adminId": { "type": "string", "required": true },
+        "action": { "type": "string", "required": true },
+        "targetUserId": { "type": "string", "required": false },
+        "details": { "type": "string", "required": true },
+        "timestamp": { "type": "string", "required": true }
+      }
+    },
+    "SupportMessage": {
+      "collection": "support_chats",
+      "fields": {
+        "id": { "type": "string", "required": true },
+        "userId": { "type": "string", "required": true },
+        "userName": { "type": "string", "required": true },
+        "userMobile": { "type": "string", "required": true },
+        "sender": { "type": "string", "required": true },
+        "message": { "type": "string", "required": true },
+        "timestamp": { "type": "string", "required": true },
+        "readByAdmin": { "type": "boolean", "required": true },
+        "readByUser": { "type": "boolean", "required": true },
+        "category": { "type": "string", "required": false }
+      }
+    }
+  }
+}
